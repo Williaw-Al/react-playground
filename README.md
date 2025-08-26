@@ -28,7 +28,7 @@ Um laboratório interativo feito em **React + Vite + Typescript** para explorar 
 - Typescript
 - Tailwind CSS
 - UnoCSS
-- React-Router-Dom
+- React Router v7
 
 ---
 
