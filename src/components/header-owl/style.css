@@ -1,0 +1,19 @@
+.coruja-front-anim {
+    position: absolute;
+    left: 0;
+    animation: updown 2s linear 1s infinite;
+}
+
+@keyframes updown {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 1px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
