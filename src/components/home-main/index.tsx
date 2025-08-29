@@ -1,4 +1,5 @@
 import { ProjectCard } from "../project-card"
+import { Link } from "react-router"
 
 interface IProject {
     title: string,
@@ -35,16 +36,20 @@ export const HomeMain = () => {
             </div>
 
             <div flex flex-col gap-10>
-                <ProjectCard
-                    title={cardsUrl.xadrez.title}
-                    about={cardsUrl.xadrez.about}
-                    image={cardsUrl.xadrez.image} />
-                <ProjectCard
-                    title={cardsUrl.tierlist.title}
-                    about={cardsUrl.tierlist.about}
-                    image={cardsUrl.tierlist.image} />
+                <Link to='chess-pieces'>
+                    <ProjectCard
+                        title={cardsUrl.xadrez.title}
+                        about={cardsUrl.xadrez.about}
+                        image={cardsUrl.xadrez.image} />
+                </Link>
+                <Link to='tierlist-fnaf'>
+                    <ProjectCard
+                        title={cardsUrl.tierlist.title}
+                        about={cardsUrl.tierlist.about}
+                        image={cardsUrl.tierlist.image} />
+                </Link>
             </div>
-            
+
         </main>
     )
 }
