@@ -9,7 +9,7 @@ export const HeaderBar = () => {
             >
                 <div />
                 <HeaderOwl/> 
-                <div >
+                <div>
                     <HamburgerMenu></HamburgerMenu>
                 </div>
             </header>
