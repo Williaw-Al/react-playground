@@ -5,7 +5,7 @@ export const HamburgerMenu = () => {
 
     return (
         <div relative flex flex-col>
-            <input id="menu-hamburguer" type="checkbox" onChange={() => setActive(!active)} />
+            <input className="hidden" id="menu-hamburguer" type="checkbox" onChange={() => setActive(!active)} />
 
             <label htmlFor="menu-hamburguer" self-end>
                 <div w-15 h-7 mt-5 flex justify-center>

@@ -1,0 +1,1 @@
+export const charactersList = ["Freddy", "Bonnie", "Chica", "Foxy", "Golden Freddy"]

@@ -16,6 +16,7 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
   box-sizing: border-box;
   background-clip: border-box;
 
@@ -28,8 +29,4 @@ a {
 
 ul {
   list-style: none;
-}
-
-input {
-  display: none;
 }
