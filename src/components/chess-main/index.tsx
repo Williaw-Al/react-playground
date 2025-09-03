@@ -1,60 +1,59 @@
-import { useState } from "react"
-
-const pieces = [
-    'Peão', 'Cavalo', 'Bispo', 'Torre', 'Rainha', 'Rei'
-]
+import { useRef, useContext } from "react";
+import { ChessPiece } from "../chess-piece"; 
+import { ChessContext } from "../../contexts/chess-context"; 
+import { ChessPieceList } from "./chess-piece-list";
+import { useChessHandlers } from "../../hooks/useChessHandlers"; 
 
 export const ChessMain = () => {
+  const context = useContext(ChessContext)!;
+  const boardRef = useRef<HTMLDivElement | null>(null);
 
-    const [currentPiece, setCurrentPiece] = useState(0)
-    const [direction, setDirection] = useState("")
-    const [animating, setAnimating] = useState(false)
+  const {
+    handleChange,
+    pickPiece,
+    releasePiece,
+    handleTouchMove,
+    holdingPiece,
+    dragPosition,
+  } = useChessHandlers(context, boardRef);
 
-    const handleChange = (dir: string) => {
-        if (animating) return
-        setDirection(dir)
-        setAnimating(true)
+  return (
+    <div
+      relative
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      overflow-hidden
+      flex
+      flex-col
+      items-center
+    >
+      <div text-center>
+        <h1 font-orbitron>Peças Móveis</h1>
+        <p>Escolha uma peça, e mova ela para o tabuleiro!</p>
+      </div>
 
-        setTimeout(() => {
-            if (dir === 'prev') {
-                setCurrentPiece(currentPiece === 0 ? pieces.length - 1 : currentPiece - 1)
-            } else {
-                setCurrentPiece(currentPiece === pieces.length - 1 ? 0 : currentPiece + 1)
-            }
+      <ChessPieceList handleChange={handleChange} releasePiece={releasePiece} pickPiece={pickPiece} />
 
-            setAnimating(false)
-            setDirection('')
-        }, 200)
-    }
+      <div>
+        <p>Dados</p>
+      </div>
 
-    return (
-        <>
-            <div text-center>
-                <h1 font-orbitron>Peças Móveis</h1>
-                <p>Escolha uma peça, e mova ela para o tabuleiro!</p>
-            </div>
-            <nav >
-                <ul flex justify-between p-5 gap-1 transition duration-200 ease-in
-                    className={`
-                    ${direction === 'next' ? '-translate-x-30' : ''}
-                    ${direction === 'prev' ? 'translate-x-30' : ''} `} >
-                    <li onClick={() => handleChange('prev')}>
-                        {currentPiece === 0 ? pieces[pieces.length - 1] : pieces[currentPiece - 1]}
-                    </li>
-                    <li onTouchStart={() => { console.log('Me segurou bixo') }}>
-                        {pieces[currentPiece]}
-                    </li>
-                    <li onClick={() => handleChange('next')}>
-                        {currentPiece === pieces.length - 1 ? pieces[0] : pieces[currentPiece + 1]}
-                    </li>
-                </ul>
-            </nav>
-            <div>
-                <p>Dados</p>
-            </div>
-            <div>
-                <p>Tabuleiro</p>
-            </div>
-        </>
-    )
-}
+      <div w-50 h-50 bg-white ref={boardRef}>
+        <p>Tabuleiro</p>
+      </div>
+
+      {holdingPiece && (
+        <div
+          absolute
+          pointer-events-none
+          style={{
+            top: dragPosition.y,
+            left: dragPosition.x,
+          }}
+        >
+          <ChessPiece />
+        </div>
+      )}
+    </div>
+  );
+};

@@ -1,0 +1,81 @@
+{
+  "pieces": [
+    {
+      "name": "Peão",
+      "value": 1,
+      "moves": {
+        "normal": "Move uma casa para frente",
+        "extra": "Pode mover duas casas para frente se ainda não tiver se movido",
+        "capture": "Captura uma casa na diagonal para frente",
+        "special": "Pode promover ao chegar na última fileira; pode realizar en passant"
+      },
+      "tips": {
+        "opening": "Use peões para controlar o centro do tabuleiro e abrir espaço para outras peças.",
+        "middlegame": "Evite avançar demais sem apoio; peões passados tornam-se muito fortes.",
+        "endgame": "Peões são decisivos — avance com cuidado e promova sempre que possível."
+      }
+    },
+    {
+      "name": "Cavalo",
+      "value": 3,
+      "moves": {
+        "normal": "Move em 'L': duas casas em uma direção e depois uma perpendicular",
+        "special": "Pode pular sobre outras peças"
+      },
+      "tips": {
+        "opening": "Desenvolva cedo os cavalos para controlar o centro.",
+        "middlegame": "Cavalos são fortes em posições fechadas e com muitas peças no tabuleiro.",
+        "endgame": "Busque casas centrais; cavalo sozinho tem dificuldade contra peões passados."
+      }
+    },
+    {
+      "name": "Bispo",
+      "value": 3,
+      "moves": {
+        "normal": "Move em qualquer número de casas na diagonal"
+      },
+      "tips": {
+        "opening": "Coloque bispos em diagonais ativas após mover peões do centro.",
+        "middlegame": "Um par de bispos pode controlar o tabuleiro em posições abertas.",
+        "endgame": "Bispos são muito fortes em finais com peões em ambos os lados do tabuleiro."
+      }
+    },
+    {
+      "name": "Torre",
+      "value": 5,
+      "moves": {
+        "normal": "Move em qualquer número de casas na vertical ou horizontal"
+      },
+      "tips": {
+        "opening": "Mantenha as torres seguras até que o centro esteja mais definido.",
+        "middlegame": "Coloque torres em colunas abertas ou semiabertas para pressionar.",
+        "endgame": "Torres são extremamente fortes em finais — busque colocá-las atrás de peões passados."
+      }
+    },
+    {
+      "name": "Dama",
+      "value": 9,
+      "moves": {
+        "normal": "Move em qualquer número de casas na vertical, horizontal ou diagonal"
+      },
+      "tips": {
+        "opening": "Não traga a dama cedo demais, pode ser alvo fácil.",
+        "middlegame": "Use a dama junto de outras peças para criar ameaças combinadas.",
+        "endgame": "A dama com rei pode forçar o xeque-mate facilmente contra um rei solitário."
+      }
+    },
+    {
+      "name": "Rei",
+      "value": "infinite",
+      "moves": {
+        "normal": "Move uma casa em qualquer direção",
+        "special": "Pode realizar o roque junto com a torre"
+      },
+      "tips": {
+        "opening": "Priorize a segurança do rei através do roque.",
+        "middlegame": "Mantenha o rei protegido, evite expô-lo.",
+        "endgame": "O rei torna-se uma peça ativa no final — use-o para apoiar peões e controlar casas."
+      }
+    }
+  ]
+}
